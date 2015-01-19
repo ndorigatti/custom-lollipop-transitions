@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:cardview="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        cardview:cardElevation="4dp"
+        cardview:cardUseCompatPadding="true"
+        android:clickable="true"
+        android:foreground="?android:selectableItemBackground"
+        >
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <FrameLayout
+                android:id="@+id/card_row_thumb_feedback"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:foreground="?android:selectableItemBackground">
+
+            <ImageView
+                    android:id="@+id/card_row_thumbnail"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="120dp"
+
+                    android:transitionName="thumbnail"
+                    android:layout_margin="8dp"
+                    android:maxHeight="120dp"
+                    android:scaleType="matrix"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/preview_bw"/>
+        </FrameLayout>
+
+        <TextView
+                android:transitionName="bigtitle"
+                android:id="@+id/card_row_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gazzetta Dello Sport"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                style="@android:style/TextAppearance.Material.Subhead"
+                android:textColor="@android:color/black"/>
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:id="@+id/card_row_subtitle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:transitionName="subtitle"
+                    android:layout_height="match_parent"
+                    android:text="Sabato 13 Dicembre, 2014"
+                    android:layout_marginLeft="8dp"
+                    style="@android:style/TextAppearance.Material.Caption"/>
+
+            <FrameLayout
+                    android:id="@+id/card_row_status_feedback"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:foreground="?android:selectableItemBackground">
+
+                <ImageView
+                        android:id="@+id/card_row_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:src="@drawable/ic_download_check"
+                        android:tint="@android:color/holo_green_dark"/>
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

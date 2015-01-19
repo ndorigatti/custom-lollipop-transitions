@@ -1,0 +1,43 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:padding="16dp"
+              android:orientation="vertical"
+              tools:context="it.dorigatti.gazzetta.com.alexjlockwood.transitions.custom.activity.DetailActivity">
+
+    <TextView
+            android:id="@+id/title_big"
+            tools:text="Gazzetta Dello Sport"
+            android:layout_marginBottom="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:transitionName="bigtitle"
+            style="@android:style/TextAppearance.Material.Headline"/>
+
+    <ScrollView
+            android:scrollbarStyle="outsideInset"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/scrollView">
+
+        <ImageView
+                android:id="@+id/thumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:transitionName="thumbnail"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:src="@drawable/preview_bw"/>
+    </ScrollView>
+
+    <TextView
+            android:id="@+id/subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Sabato 13 Dicembre, 2014"
+            android:transitionName="subtitle"
+            style="@android:style/TextAppearance.Material.Subhead"/>
+
+</LinearLayout>

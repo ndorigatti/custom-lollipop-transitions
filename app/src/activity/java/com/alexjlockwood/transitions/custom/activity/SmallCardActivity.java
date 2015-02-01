@@ -10,7 +10,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.alexjlockwood.transitions.custom.EnterSharedElementCallback2;
 import com.alexjlockwood.transitions.custom.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SmallCardActivity extends Activity implements View.OnClickListener {
 
@@ -19,6 +23,16 @@ public class SmallCardActivity extends Activity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_small_card);
         findViewById(R.id.container).setOnClickListener(this);
+        //getWindow().setEnterTransition(TransitionUtils.makeEnterTransition());
+
+        List<String> textNames = new ArrayList<>();
+        textNames.add("bigtitle");
+        textNames.add("subtitle");
+        List<String> imgNames = new ArrayList<>();
+        imgNames.add("thumbnail");
+
+        //getWindow().setSharedElementEnterTransition(TransitionUtils.makeSharedElementEnterTransition(textNames, imgNames, textNames));
+        setEnterSharedElementCallback(new EnterSharedElementCallback2(this));
 
     }
 
@@ -46,17 +60,20 @@ public class SmallCardActivity extends Activity implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
+
         ActivityOptionsCompat options =
                 ActivityOptionsCompat.makeSceneTransitionAnimation(
                         SmallCardActivity.this,
-                        Pair.create(v.findViewById(R.id.card_row_thumbnail), "thumbnail"),
+
                         Pair.create(v.findViewById(R.id.card_row_title), "bigtitle"),
-                        Pair.create(v.findViewById(R.id.card_row_subtitle), "subtitle"));
+                        Pair.create(v.findViewById(R.id.card_row_subtitle), "subtitle"),
+                        Pair.create(v.findViewById(R.id.card_row_thumbnail), "thumbnail"));
 
         Intent intent = new Intent(SmallCardActivity.this, DetailActivity.class);
         intent.putExtra("bigtitle", "Gazzetta Dello Sport");
         intent.putExtra("subtitle", "Sabato 13 Dicembre, 2014");
         intent.putExtra("status", false);
         ActivityCompat.startActivity(SmallCardActivity.this, intent, options.toBundle());
+
     }
 }

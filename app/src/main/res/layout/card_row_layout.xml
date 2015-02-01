@@ -32,8 +32,8 @@
                     android:transitionName="thumbnail"
                     android:layout_margin="8dp"
                     android:maxHeight="120dp"
-                    android:scaleType="matrix"
-                    android:adjustViewBounds="true"
+                    android:scaleType="fitStart"
+                    android:adjustViewBounds="false"
                     android:src="@drawable/preview_bw"/>
         </FrameLayout>
 

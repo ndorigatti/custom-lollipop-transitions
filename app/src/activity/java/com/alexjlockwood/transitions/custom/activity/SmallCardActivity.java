@@ -13,9 +13,6 @@ import android.view.View;
 import com.alexjlockwood.transitions.custom.EnterSharedElementCallback2;
 import com.alexjlockwood.transitions.custom.R;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class SmallCardActivity extends Activity implements View.OnClickListener {
 
     @Override
@@ -25,11 +22,11 @@ public class SmallCardActivity extends Activity implements View.OnClickListener 
         findViewById(R.id.container).setOnClickListener(this);
         //getWindow().setEnterTransition(TransitionUtils.makeEnterTransition());
 
-        List<String> textNames = new ArrayList<>();
-        textNames.add("bigtitle");
-        textNames.add("subtitle");
-        List<String> imgNames = new ArrayList<>();
-        imgNames.add("thumbnail");
+//        List<String> textNames = new ArrayList<>();
+//        textNames.add("bigtitle");
+//        textNames.add("subtitle");
+//        List<String> imgNames = new ArrayList<>();
+//        imgNames.add("thumbnail");
 
         //getWindow().setSharedElementEnterTransition(TransitionUtils.makeSharedElementEnterTransition(textNames, imgNames, textNames));
         setEnterSharedElementCallback(new EnterSharedElementCallback2(this));

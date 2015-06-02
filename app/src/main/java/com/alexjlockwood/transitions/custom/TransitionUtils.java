@@ -54,7 +54,7 @@ public final class TransitionUtils {
     }
 
     public static Transition makeSharedElementEnterTransition(List<String> textTransitionNames,
-                                                              List<String> imageNames, List<String> recolorNames) {
+                                                              List<String> imageNames) {
         TransitionSet set = new TransitionSet();
         set.setOrdering(TransitionSet.ORDERING_TOGETHER);
 
@@ -66,10 +66,7 @@ public final class TransitionUtils {
             textSize.addTarget(textTName);
         }
 
-        Transition recolor = new Recolor();
-        for (String recolorTname : recolorNames) {
-            recolor.addTarget(recolorTname);
-        }
+
 
         Transition imageTransf = new ChangeImageTransform();
         Transition imageClip = new ChangeClipBounds();
@@ -84,7 +81,6 @@ public final class TransitionUtils {
         set.addTransition(imageTransf);
         set.addTransition(imageClip);
         set.addTransition(changeTransform);
-        set.addTransition(recolor);
         set.addTransition(changeBounds);
         set.addTransition(textSize);
         return set;

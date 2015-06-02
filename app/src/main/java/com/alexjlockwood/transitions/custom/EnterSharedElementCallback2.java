@@ -1,10 +1,10 @@
 package com.alexjlockwood.transitions.custom;
 
-
 import android.app.SharedElementCallback;
 import android.content.Context;
 import android.content.res.Resources;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.TextView;
 
@@ -15,15 +15,11 @@ public class EnterSharedElementCallback2 extends SharedElementCallback {
 
     private final float mStartTextSize;
     private final float mEndTextSize;
-    private final int mStartColor;
-    private final int mEndColor;
 
     public EnterSharedElementCallback2(Context context) {
         Resources res = context.getResources();
-        mStartTextSize = res.getDimensionPixelSize(R.dimen.small_text_size);
-        mEndTextSize = res.getDimensionPixelSize(R.dimen.large_text_size);
-        mStartColor = res.getColor(R.color.blue);
-        mEndColor = res.getColor(R.color.light_blue);
+        mStartTextSize = res.getDimensionPixelSize(R.dimen.starting_title_size);
+        mEndTextSize = res.getDimensionPixelSize(R.dimen.end_title_size);
     }
 
     @Override
@@ -32,7 +28,7 @@ public class EnterSharedElementCallback2 extends SharedElementCallback {
         TextView textView = (TextView) sharedElements.get(0);
 
         // Setup the TextView's start values.
-        //textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mStartTextSize);
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mStartTextSize);
         //textView.setTextColor(mStartColor);
     }
 
@@ -46,7 +42,7 @@ public class EnterSharedElementCallback2 extends SharedElementCallback {
         int oldHeight = textView.getMeasuredHeight();
 
         // Setup the TextView's end values.
-        //textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mEndTextSize);
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mEndTextSize);
         //textView.setTextColor(mEndColor);
 
         // Re-measure the TextView (since the text size has changed).

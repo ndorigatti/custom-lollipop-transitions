@@ -37,9 +37,13 @@ public class DetailActivity extends Activity {
         textNames.add("subtitle");
         List<String> imgNames = new ArrayList<>();
         imgNames.add("thumbnail");
-        //getWindow().setEnterTransition(TransitionUtils.makeEnterTransition());
-        getWindow().setSharedElementEnterTransition(TransitionUtils.makeSharedElementEnterTransition(textNames, imgNames, textNames));
+        getWindow().setEnterTransition(TransitionUtils.makeEnterTransition());
+        getWindow().setSharedElementEnterTransition(TransitionUtils.makeSharedElementEnterTransition(textNames, imgNames));
         setEnterSharedElementCallback(new EnterSharedElementCallback2(this));
     }
 
+    @Override
+    public void onBackPressed() {
+        this.finishAfterTransition();
+    }
 }

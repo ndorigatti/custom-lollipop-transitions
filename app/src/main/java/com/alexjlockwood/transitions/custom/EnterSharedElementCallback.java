@@ -12,7 +12,7 @@ import android.widget.TextView;
 import java.util.List;
 
 public class EnterSharedElementCallback extends SharedElementCallback {
-    private static final String TAG = "EnterSharedElementCallback";
+    private static final String TAG = "EnterSharedElementCbk";
 
     private final float mStartTextSize;
     private final float mEndTextSize;

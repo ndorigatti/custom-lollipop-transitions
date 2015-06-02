@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 public class EnterSharedElementCallback2 extends SharedElementCallback {
-    private static final String TAG = "EnterSharedElementCallback";
+    private static final String TAG = "EnterSharedElementCbk";
 
     private final float mStartTextSize;
     private final float mEndTextSize;
@@ -28,7 +28,7 @@ public class EnterSharedElementCallback2 extends SharedElementCallback {
 
     @Override
     public void onSharedElementStart(List<String> sharedElementNames, List<View> sharedElements, List<View> sharedElementSnapshots) {
-        Log.i(TAG, "=== onSharedElementStart(List<String>, List<View>, List<View>)");
+        Log.i(TAG, "onSharedElemntStart");
         TextView textView = (TextView) sharedElements.get(0);
 
         // Setup the TextView's start values.
@@ -38,7 +38,7 @@ public class EnterSharedElementCallback2 extends SharedElementCallback {
 
     @Override
     public void onSharedElementEnd(List<String> sharedElementNames, List<View> sharedElements, List<View> sharedElementSnapshots) {
-        Log.i(TAG, "=== onSharedElementEnd(List<String>, List<View>, List<View>)");
+        Log.i(TAG, "onSharedElemntEnd");
         TextView textView = (TextView) sharedElements.get(0);
 
         // Record the TextView's old width/height.

@@ -9,6 +9,7 @@ import android.support.v4.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.alexjlockwood.transitions.custom.EnterSharedElementCallback2;
 import com.alexjlockwood.transitions.custom.R;
@@ -29,6 +30,9 @@ public class SmallCardActivity extends Activity implements View.OnClickListener 
 //        imgNames.add("thumbnail");
 
         //getWindow().setSharedElementEnterTransition(TransitionUtils.makeSharedElementEnterTransition(textNames, imgNames, textNames));
+        TextView bigTitle = (TextView) findViewById(R.id.title_big);
+        bigTitle.getTextSize();
+
         setEnterSharedElementCallback(new EnterSharedElementCallback2(this));
 
     }
@@ -61,9 +65,8 @@ public class SmallCardActivity extends Activity implements View.OnClickListener 
         ActivityOptionsCompat options =
                 ActivityOptionsCompat.makeSceneTransitionAnimation(
                         SmallCardActivity.this,
-
-                        Pair.create(v.findViewById(R.id.card_row_title), "bigtitle"),
-                        Pair.create(v.findViewById(R.id.card_row_subtitle), "subtitle"),
+                        Pair.create(v.findViewById(R.id.title_big), "bigtitle"),
+                        Pair.create(v.findViewById(R.id.subtitle), "subtitle"),
                         Pair.create(v.findViewById(R.id.card_row_thumbnail), "thumbnail"));
 
         Intent intent = new Intent(SmallCardActivity.this, DetailActivity.class);

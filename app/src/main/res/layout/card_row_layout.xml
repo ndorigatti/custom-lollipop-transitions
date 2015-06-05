@@ -39,14 +39,14 @@
 
         <TextView
                 android:transitionName="bigtitle"
-                android:id="@+id/card_row_title"
+                android:id="@+id/title_big"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Gazzetta Dello Sport"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 style="@android:style/TextAppearance.Material.Subhead"
-                android:textColor="@android:color/black"/>
+                android:textColor="@color/primary_text_default_material_light"/>
 
         <LinearLayout
                 android:orientation="horizontal"
@@ -54,14 +54,15 @@
                 android:layout_height="wrap_content">
 
             <TextView
-                    android:id="@+id/card_row_subtitle"
+                    android:id="@+id/subtitle"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:transitionName="subtitle"
                     android:layout_height="match_parent"
                     android:text="Sabato 13 Dicembre, 2014"
                     android:layout_marginLeft="8dp"
-                    style="@android:style/TextAppearance.Material.Caption"/>
+                    style="@android:style/TextAppearance.Material.Caption"
+                    android:color="@color/secondary_text_default_material_light"/>
 
             <FrameLayout
                     android:id="@+id/card_row_status_feedback"

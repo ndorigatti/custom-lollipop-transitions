@@ -13,37 +13,77 @@ import java.util.List;
 public class EnterSharedElementCallback2 extends SharedElementCallback {
     private static final String TAG = "EnterSharedElementCbk";
 
-    private final float mStartTextSize;
-    private final float mEndTextSize;
+    private final float mStartTextSize, mStartSubSize;
+    private final float mEndTextSize, mEndSubSize;
+    //
+    private final int mSubStartColor, mSubEndColor;
 
     public EnterSharedElementCallback2(Context context) {
         Resources res = context.getResources();
         mStartTextSize = res.getDimensionPixelSize(R.dimen.starting_title_size);
         mEndTextSize = res.getDimensionPixelSize(R.dimen.end_title_size);
+        mSubStartColor = res.getColor(R.color.secondary_text_default_material_light);
+        mSubEndColor = res.getColor(R.color.primary_text_default_material_light);
+        mStartSubSize = res.getDimensionPixelSize(R.dimen.starting_sub_size);
+        mEndSubSize = res.getDimensionPixelSize(R.dimen.end_sub_size);
     }
 
     @Override
     public void onSharedElementStart(List<String> sharedElementNames, List<View> sharedElements, List<View> sharedElementSnapshots) {
         Log.i(TAG, "onSharedElemntStart");
-        TextView textView = (TextView) sharedElements.get(0);
 
+        int titidx = 0;
+        int subidx = 1;
+
+        for (int i = 0; i < sharedElementNames.size(); i++) {
+            if (sharedElementNames.get(i).equals("bigtitle")) {
+                titidx = i;
+                continue;
+            }
+            if (sharedElementNames.get(i).equals("subtitle")) {
+                subidx = i;
+            }
+        }
+
+        TextView textView = (TextView) sharedElements.get(titidx);
+        TextView textView2 = (TextView) sharedElements.get(subidx);
         // Setup the TextView's start values.
         textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mStartTextSize);
-        //textView.setTextColor(mStartColor);
+        textView2.setTextSize(TypedValue.COMPLEX_UNIT_PX, mStartSubSize);
+        textView2.setTextColor(mSubStartColor);
     }
 
     @Override
     public void onSharedElementEnd(List<String> sharedElementNames, List<View> sharedElements, List<View> sharedElementSnapshots) {
         Log.i(TAG, "onSharedElemntEnd");
-        TextView textView = (TextView) sharedElements.get(0);
 
+        int titidx = 0;
+        int subidx = 1;
+
+        for (int i = 0; i < sharedElementNames.size(); i++) {
+            if (sharedElementNames.get(i).equals("bigtitle")) {
+                titidx = i;
+                continue;
+            }
+            if (sharedElementNames.get(i).equals("subtitle")) {
+                subidx = i;
+            }
+        }
+
+        TextView textView = (TextView) sharedElements.get(titidx);
+        TextView textView2 = (TextView) sharedElements.get(subidx);
+        setTextViewSize(textView, mEndTextSize);
+        setTextViewSize(textView2, mEndSubSize);
+        textView2.setTextColor(mSubEndColor);
+    }
+
+    private void setTextViewSize(TextView textView, float size) {
         // Record the TextView's old width/height.
         int oldWidth = textView.getMeasuredWidth();
         int oldHeight = textView.getMeasuredHeight();
 
         // Setup the TextView's end values.
-        textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mEndTextSize);
-        //textView.setTextColor(mEndColor);
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
 
         // Re-measure the TextView (since the text size has changed).
         int widthSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
@@ -59,5 +99,6 @@ public class EnterSharedElementCallback2 extends SharedElementCallback {
         int heightDiff = newHeight - oldHeight;
         textView.layout(textView.getLeft() - widthDiff / 2, textView.getTop() - heightDiff / 2,
                 textView.getRight() + widthDiff / 2, textView.getBottom() + heightDiff / 2);
+
     }
 }

@@ -58,16 +58,26 @@ public final class TransitionUtils {
         TransitionSet set = new TransitionSet();
         set.setOrdering(TransitionSet.ORDERING_TOGETHER);
 
+        Transition recolor = new Recolor();
         Transition changeBounds = new ChangeBounds();
         Transition textSize = new TextSizeTransition();
 
+        changeBounds.addTarget(R.id.title_big);
+        textSize.addTarget("bigtitle");
+        changeBounds.addTarget(R.id.subtitle);
+        textSize.addTarget("subtitle");
         for (String textTName : textTransitionNames) {
             changeBounds.addTarget(textTName);
             textSize.addTarget(textTName);
+            recolor.addTarget(textTName);
         }
 
+        set.addTransition(recolor);
+        set.addTransition(changeBounds);
+        set.addTransition(textSize);
 
-
+        TransitionSet set2 = new TransitionSet();
+        set2.setOrdering(TransitionSet.ORDERING_TOGETHER);
         Transition imageTransf = new ChangeImageTransform();
         Transition imageClip = new ChangeClipBounds();
         Transition changeTransform = new ChangeTransform();
@@ -78,11 +88,18 @@ public final class TransitionUtils {
             changeTransform.addTarget(imgName);
         }
 
-        set.addTransition(imageTransf);
-        set.addTransition(imageClip);
-        set.addTransition(changeTransform);
-        set.addTransition(changeBounds);
-        set.addTransition(textSize);
+        set2.addTransition(imageTransf);
+        set2.addTransition(imageClip);
+        set2.addTransition(changeTransform);
+        //set2.setDuration(100);
+
+//TransitionSet setTot = new TransitionSet();
+//        setTot.setOrdering(TransitionSet.ORDERING_TOGETHER);
+        // setTot.setDuration(5000);
+//        setTot.addTransition(set2);
+//        setTot.addTransition(set);
+        set.addTransition(set2);
+        set.setDuration(5000);
         return set;
     }
 

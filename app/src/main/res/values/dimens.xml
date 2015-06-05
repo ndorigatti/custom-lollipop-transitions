@@ -5,4 +5,9 @@
 
     <dimen name="starting_title_size">16sp</dimen>
     <dimen name="end_title_size">24sp</dimen>
+
+
+    <dimen name="starting_sub_size">12sp</dimen>
+
+    <dimen name="end_sub_size">16sp</dimen>
 </resources>

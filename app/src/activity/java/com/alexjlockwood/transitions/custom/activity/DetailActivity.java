@@ -19,7 +19,7 @@ public class DetailActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-
+//TODO Check view flickering
 
         TextView bigtitle = (TextView) findViewById(R.id.title_big);
         bigtitle.setText(getIntent().getStringExtra("bigtitle"));

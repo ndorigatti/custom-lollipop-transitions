@@ -9,9 +9,7 @@ import android.support.v4.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
-import com.alexjlockwood.transitions.custom.EnterSharedElementCallback2;
 import com.alexjlockwood.transitions.custom.R;
 
 public class SmallCardActivity extends Activity implements View.OnClickListener {
@@ -30,10 +28,10 @@ public class SmallCardActivity extends Activity implements View.OnClickListener 
 //        imgNames.add("thumbnail");
 
         //getWindow().setSharedElementEnterTransition(TransitionUtils.makeSharedElementEnterTransition(textNames, imgNames, textNames));
-        TextView bigTitle = (TextView) findViewById(R.id.title_big);
-        bigTitle.getTextSize();
+//        TextView bigTitle = (TextView) findViewById(R.id.title_big);
+//        bigTitle.getTextSize();
 
-        setEnterSharedElementCallback(new EnterSharedElementCallback2(this));
+       // setEnterSharedElementCallback(new EnterSharedElementCallback2(this));
 
     }
 

@@ -17,7 +17,7 @@ public class SmallCardActivity extends Activity implements View.OnClickListener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_small_card);
+        setContentView(R.layout.card_row_layout_simple);
         findViewById(R.id.container).setOnClickListener(this);
         //getWindow().setEnterTransition(TransitionUtils.makeEnterTransition());
 

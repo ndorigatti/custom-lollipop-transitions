@@ -1,7 +1,9 @@
 package com.alexjlockwood.transitions.custom.activity;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.ViewCompat;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,10 +18,12 @@ public class DetailActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+        getWindow().setAllowEnterTransitionOverlap(true);
+        getWindow().setAllowReturnTransitionOverlap(true);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_simple);
 
-//TODO Check view flickering
 
         TextView bigtitle = (TextView) findViewById(R.id.title_big);
         bigtitle.setText(getIntent().getStringExtra("bigtitle"));

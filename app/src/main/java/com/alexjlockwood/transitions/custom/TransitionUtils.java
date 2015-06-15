@@ -8,6 +8,7 @@ import android.transition.ChangeTransform;
 import android.transition.Fade;
 import android.transition.Transition;
 import android.transition.TransitionSet;
+import android.view.animation.AccelerateInterpolator;
 
 import java.util.List;
 
@@ -83,12 +84,14 @@ public final class TransitionUtils {
             changeTransform.addTarget(imgName);
         }
 
+        changeBounds.setInterpolator(new AccelerateInterpolator());
+
         set.addTransition(imageTransf);
-        //set.addTransition(imageClip);
+        set.addTransition(imageClip);
         set.addTransition(changeTransform);
 
 
-        //set.setDuration(5000);
+        ///set.setDuration(3000);
         return set;
     }
 

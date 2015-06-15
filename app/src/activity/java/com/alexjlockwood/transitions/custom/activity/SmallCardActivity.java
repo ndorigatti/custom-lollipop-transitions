@@ -9,6 +9,7 @@ import android.support.v4.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 
 import com.alexjlockwood.transitions.custom.R;
 
@@ -16,23 +17,12 @@ public class SmallCardActivity extends Activity implements View.OnClickListener 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+        getWindow().setAllowEnterTransitionOverlap(true);
+        getWindow().setAllowReturnTransitionOverlap(true);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.card_row_layout_simple);
         findViewById(R.id.container).setOnClickListener(this);
-        //getWindow().setEnterTransition(TransitionUtils.makeEnterTransition());
-
-//        List<String> textNames = new ArrayList<>();
-//        textNames.add("bigtitle");
-//        textNames.add("subtitle");
-//        List<String> imgNames = new ArrayList<>();
-//        imgNames.add("thumbnail");
-
-        //getWindow().setSharedElementEnterTransition(TransitionUtils.makeSharedElementEnterTransition(textNames, imgNames, textNames));
-//        TextView bigTitle = (TextView) findViewById(R.id.title_big);
-//        bigTitle.getTextSize();
-
-       // setEnterSharedElementCallback(new EnterSharedElementCallback2(this));
-
     }
 
     @Override

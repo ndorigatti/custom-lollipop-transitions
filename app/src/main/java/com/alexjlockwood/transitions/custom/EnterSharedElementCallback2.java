@@ -51,6 +51,8 @@ public class EnterSharedElementCallback2 extends SharedElementCallback {
         textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mStartTextSize);
         textView2.setTextSize(TypedValue.COMPLEX_UNIT_PX, mStartSubSize);
         textView2.setTextColor(mSubStartColor);
+
+
     }
 
     @Override
@@ -97,8 +99,8 @@ public class EnterSharedElementCallback2 extends SharedElementCallback {
         // Layout the TextView in the center of its container, accounting for its new width/height.
         int widthDiff = newWidth - oldWidth;
         int heightDiff = newHeight - oldHeight;
-        textView.layout(textView.getLeft() - widthDiff / 2, textView.getTop() - heightDiff / 2,
-                textView.getRight() + widthDiff / 2, textView.getBottom() + heightDiff / 2);
+        textView.layout(textView.getLeft() , textView.getTop(),
+               textView.getRight() + widthDiff , textView.getBottom() + heightDiff );
 
     }
 }
